@@ -3,7 +3,10 @@ import 'package:flutter_catalog/modles/catalog.dart';
 
 class ItemWidget extends StatelessWidget {
   final Item item;
-  const ItemWidget({Key? key, required this.item}) : super(key: key);
+  const ItemWidget({Key? key, required this.item})
+      // ignore: unnecessary_null_comparison, unrelated_type_equality_checks
+      : assert(item != null),
+        super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -11,7 +14,11 @@ class ItemWidget extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(16.0),
         child: ListTile(
-          leading: Image.network(item.imageurl),
+          onTap: () {
+            // ignore: avoid_print
+            print("object pressed");
+          },
+          leading: Image.network(item.image),
           title: Text(
             item.name,
             // ignore: prefer_const_constructors
