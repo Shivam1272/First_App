@@ -28,7 +28,7 @@ class AddMutation extends VxMutation<MyStores> {
   AddMutation(this.item);
   @override
   perform() {
-    store.cart._itemid.add(item.id);
+    store?.cart._itemid.add(item.id);
   }
 }
 
@@ -38,6 +38,6 @@ class RemoveMutation extends VxMutation<MyStores> {
   RemoveMutation(this.item);
   @override
   perform() {
-    store.cart._itemid.remove(item.id);
+    store?.cart._itemid.remove(item.id);
   }
 }
